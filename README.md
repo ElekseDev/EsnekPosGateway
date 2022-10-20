@@ -38,7 +38,7 @@ Initialize the instance
 Start Payment Request
 	
 	//request Type must be 0 for starting payment
-	val startPaymentRequestModel = PaymentRequestModel("requestType", 1.0, 2, 3)
+	val startPaymentRequestModel = PaymentRequestModel("requestType", "amount", "installment", "paymentId")
         gatewayBuilder.startPayment("activity", "requestCode", startPaymentRequestModel)
 
 Logging Responses
