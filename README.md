@@ -46,12 +46,12 @@ Logging Responses
 	override fun onActivityResult(requestCode: Int, resultCode: Int, data: Intent?) {
         super.onActivityResult(requestCode, resultCode, data)
         if (requestCode == "requestCode") {
+	val intentData = data?.getStringExtra("response")
             if (resultCode == RESULT_OK) {
 	    	// if result is success
-                val intentData = data?.getStringExtra("response")
+		Toast.makeText(this, intentData, Toast.LENGTH_LONG).show()
             } else {
 	    	// if result is unsuccessful
-                val intentData = data?.getStringExtra("response")
                 Toast.makeText(this, intentData, Toast.LENGTH_LONG).show()
             }
         }
