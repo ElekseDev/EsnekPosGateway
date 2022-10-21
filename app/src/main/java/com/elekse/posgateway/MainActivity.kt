@@ -11,6 +11,7 @@ import com.elekse.gatewaylibrary.PaymentRequestModel
 class MainActivity : AppCompatActivity() {
 
     var btnStartPayment: Button? = null
+    lateinit var gatewayBuilder: GatewayBuilder
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -18,12 +19,12 @@ class MainActivity : AppCompatActivity() {
 
         btnStartPayment = findViewById(R.id.btn_start_payment)
 
-        val gatewayBuilder = GatewayBuilder.Builder()
-            .credentials("Credentials")
+        gatewayBuilder = GatewayBuilder.Builder()
+            //.credentials("Credentials")
             .build()
 
         btnStartPayment?.setOnClickListener {
-            val startPaymentRequestModel = PaymentRequestModel(0, 1.0, 2, 3)
+            val startPaymentRequestModel = PaymentRequestModel(0, 1.0, 1)
 
             gatewayBuilder.startPayment(this, 100, startPaymentRequestModel)
         }

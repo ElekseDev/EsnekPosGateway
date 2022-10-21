@@ -4,6 +4,7 @@ import android.app.Activity
 import android.content.ActivityNotFoundException
 import android.content.Intent
 import android.util.Log
+import android.widget.Toast
 import com.google.gson.Gson
 
 class GatewayBuilder private constructor(
@@ -27,7 +28,8 @@ class GatewayBuilder private constructor(
             activity.startActivityForResult(intent, requestCode)
         } catch (ex: ActivityNotFoundException) {
             ex.printStackTrace()
-            Log.e("Main", "Second application is not installed!")
+            Toast.makeText(activity, "Lütfen Esnek mPos uygulamasını indirin.", Toast.LENGTH_LONG).show()
+            Log.e("GatewayError", "Esnekpos application is not installed!")
         }
     }
 
